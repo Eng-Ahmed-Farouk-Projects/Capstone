@@ -1,18 +1,20 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beyond Silence | Social Impact Project</title>
+<title>ما وراء الصمت </title>
+
 <style>
 :root {
-  --bg: #0a1020;
-  --panel: #121c31;
-  --text: #f2f5ff;
-  --muted: #a9b6cd;
-  --cyan: #59e1d1;
-  --purple: #a99aff;
+  --bg: #09111f;
+  --panel: #121e32;
+  --panel2: #172741;
+  --text: #f3f6ff;
+  --muted: #aab8cf;
+  --cyan: #5de2d0;
+  --purple: #b3a2ff;
   --line: rgba(255,255,255,.12);
 }
 * { box-sizing: border-box; }
@@ -21,482 +23,611 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: Inter, "Segoe UI", Arial, sans-serif;
-  line-height: 1.75;
+  font-family: Tahoma, Arial, sans-serif;
+  line-height: 1.95;
 }
-a { color: var(--cyan); }
-.container { width: min(1080px, 90%); margin: auto; }
+a { color: var(--cyan); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.container { width: min(1100px, 90%); margin: auto; }
 .hero {
-  padding: 95px 0 75px;
+  position: relative;
+  overflow: hidden;
+  padding: 95px 0 80px;
   background:
-    radial-gradient(ellipse at 85% 15%, #39326b 0, transparent 40%),
-    radial-gradient(ellipse at 10% 90%, #124b56 0, transparent 35%),
+    radial-gradient(ellipse at 15% 15%, #254d66 0, transparent 38%),
+    radial-gradient(ellipse at 85% 70%, #3b2e70 0, transparent 40%),
     var(--bg);
   border-bottom: 1px solid var(--line);
 }
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 230px; height: 230px;
+  border: 1px solid #5de2d033;
+  border-radius: 42% 58% 63% 37%;
+  left: -70px; bottom: -100px;
+  transform: rotate(35deg);
+}
 .tag {
   display: inline-block;
-  padding: 5px 13px;
-  border: 1px solid #59e1d155;
-  border-radius: 30px;
+  padding: 5px 15px;
+  border: 1px solid #5de2d066;
+  border-radius: 40px;
   color: var(--cyan);
   font-size: .8rem;
-  letter-spacing: 1px;
 }
-h1 { font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 1.05; margin: 25px 0; }
+h1 {
+  font-size: clamp(2.6rem, 7vw, 5rem);
+  line-height: 1.2;
+  margin: 25px 0;
+}
 h1 span { color: var(--cyan); }
-h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.25; }
-h3 { line-height: 1.4; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.4; }
+h3 { line-height: 1.5; }
 p, li { color: var(--muted); }
-.lead { max-width: 760px; font-size: 1.13rem; }
+.lead { max-width: 790px; font-size: 1.12rem; }
 section { padding: 65px 0; }
 .eyebrow {
   color: var(--cyan);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  font-size: .76rem;
-  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: 1.5px;
+  font-weight: bold;
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 .card {
-  background: linear-gradient(145deg, #17233b, #10192b);
+  background: linear-gradient(145deg, var(--panel2), var(--panel));
   border: 1px solid var(--line);
   border-radius: 18px;
   padding: 24px;
+  transition: transform .2s, border-color .2s;
 }
+.card:hover { transform: translateY(-3px); border-color: #5de2d066; }
 .card p:last-child { margin-bottom: 0; }
-.number { color: var(--cyan); font-size: 1.8rem; font-weight: 800; }
+.number { color: var(--cyan); font-size: 1.8rem; font-weight: bold; }
 .statement {
-  border-left: 3px solid var(--cyan);
-  background: #142b35;
+  border-right: 4px solid var(--cyan);
+  background: #122b35;
   padding: 25px;
-  border-radius: 0 14px 14px 0;
-  font-size: 1.08rem;
+  border-radius: 5px 16px 16px 5px;
+  font-size: 1.06rem;
 }
 .flow {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: 10px;
-  margin-top: 25px;
+  margin: 28px 0;
 }
 .step {
-  background: #17233b;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 15px;
   flex: 1 1 145px;
+  padding: 17px 12px;
+  border-radius: 13px;
+  background: var(--panel2);
+  border: 1px solid var(--line);
   text-align: center;
 }
-.arrow { color: var(--cyan); font-size: 1.5rem; }
-.quote {
-  border-left: 2px solid var(--purple);
-  padding-left: 16px;
-  color: #e3dcff;
-  font-style: italic;
-}
+.arrow { color: var(--cyan); font-size: 1.5rem; align-self: center; }
 .pill {
   display: inline-block;
   margin: 4px;
-  padding: 7px 12px;
-  background: #24364a;
-  border: 1px solid var(--line);
+  padding: 6px 13px;
   border-radius: 30px;
-  font-size: .86rem;
+  background: #23334c;
+  border: 1px solid var(--line);
+  font-size: .85rem;
 }
 .pill.primary { color: var(--cyan); }
-.pill.secondary { color: #d0c5ff; }
+.pill.secondary { color: var(--purple); }
 details {
   background: var(--panel);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 18px 22px;
+  border-radius: 15px;
+  padding: 19px 22px;
   margin: 14px 0;
 }
-summary { cursor: pointer; font-weight: 700; }
-details p { margin-bottom: 0; }
-.source { padding: 18px 0; border-bottom: 1px solid var(--line); }
-.source a { font-weight: 650; }
-.source p { font-size: .92rem; }
-.note { font-size: .85rem; color: #aebbd0; }
-footer { border-top: 1px solid var(--line); padding: 30px 0; }
+summary { cursor: pointer; font-weight: bold; }
+summary::marker { color: var(--cyan); }
+.question { color: var(--text); font-weight: bold; }
+.answer { border-right: 2px solid var(--purple); padding-right: 14px; }
+.source {
+  padding: 19px;
+  margin: 15px 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--panel);
+}
+.source a { font-weight: bold; }
+.note { font-size: .85rem; color: #9cacc5; }
+footer { padding: 30px 0; border-top: 1px solid var(--line); }
 @media(max-width:650px) {
   .grid { grid-template-columns: 1fr; }
-  .hero { padding-top: 65px; }
+  .hero { padding: 65px 0; }
   section { padding: 45px 0; }
+  .arrow { transform: rotate(-90deg); }
 }
 @media print {
   body { background: white; color: #172033; }
   p, li { color: #374151; }
-  .card, details, .step { background: white; border-color: #ccc; }
+  .card, details, .step, .source { background: white; border-color: #ccc; }
   .hero { background: white; }
   h1, h2, h3 { color: #172033; }
 }
 </style>
 </head>
+
 <body>
 
 <header class="hero">
   <div class="container">
-    <span class="tag">SOCIAL IMPACT • CHILD WELLBEING</span>
-    <h1>BEYOND<br><span>SILENCE.</span></h1>
+    <span class="tag">مبادرة مجتمعية • الصحة النفسية والاجتماعية</span>
+    <h1>ما وراء<br><span>الصمت.</span></h1>
     <p class="lead">
-      Every child deserves more than a place to live and a school to attend.
-      They deserve someone who listens, a community that protects them,
-      and the opportunity to grow without fear of humiliation or exclusion.
+      ماذا يحدث عندما يواجه الطفل مشكلاته دون أن يجد من يستمع إليه؟
+      قد لا تتوقف آثار الفقر أو التنمر أو ضعف التواصل الأسري عند الشعور بالحزن؛
+      بل قد تمتد إلى طريقة تفكيره وتعلّمه وتفاعله مع الآخرين وقدرته على اتخاذ القرارات.
     </p>
-    <p>Research foundation · Problem analysis · Stakeholder perspectives · SDGs</p>
+    <p>تحليل المشكلة • الفئة المستهدفة • مقابلات أصحاب المصلحة • الأدلة • أهداف التنمية المستدامة</p>
   </div>
 </header>
 
 <main>
-<section>
-  <div class="container">
-    <span class="eyebrow">01 / The challenge</span>
-    <h2>When a child has a problem, who listens?</h2>
-    <p>
-      Poverty, bullying, constant comparison, limited family communication,
-      and social pressures can undermine a young person's sense of safety
-      and belonging. Some children hesitate to speak up because they fear
-      blame, ridicule, rejection, or being misunderstood.
-    </p>
-    <p>
-      When trusted support is missing, children may withdraw, struggle to
-      ask for help, or experience difficulties with participation and learning.
-      These outcomes are not inevitable, but they make early support important.
-    </p>
 
-    <div class="grid">
-      <article class="card">
-        <div class="number">01</div>
-        <h3>Family communication</h3>
-        <p>Children may feel unheard when adults are unavailable, dismiss their
-        concerns, or respond with criticism instead of listening.</p>
-      </article>
-      <article class="card">
-        <div class="number">02</div>
-        <h3>Bullying & comparison</h3>
-        <p>Mockery about appearance, money, or ability can damage confidence
-        and make social participation feel unsafe.</p>
-      </article>
-      <article class="card">
-        <div class="number">03</div>
-        <h3>Economic exclusion</h3>
-        <p>Limited resources can restrict access to activities and opportunities,
-        increasing the feeling of being left behind.</p>
-      </article>
-      <article class="card">
-        <div class="number">04</div>
-        <h3>Fear of seeking help</h3>
-        <p>Fear of punishment, disbelief, or humiliation can prevent children
-        from sharing difficulties with trusted adults.</p>
-      </article>
-    </div>
+<section>
+<div class="container">
+  <span class="eyebrow">01 / جوهر المشكلة</span>
+  <h2>التشتّت في الحياة الدراسية والعملية</h2>
+
+  <p>
+    يواجه بعض الأطفال والمراهقين، من سن 6 إلى 18 عامًا، ضغوطًا متراكمة
+    نتيجة الفقر والتنمر والمقارنة بالآخرين وضعف التواصل الأسري وقلة الاهتمام
+    باحتياجاتهم العاطفية. وعندما لا يجد الطفل شخصًا موثوقًا يستمع إليه،
+    قد يجد صعوبة في فهم ما يمر به والتعامل معه، أو في معرفة متى وكيف يطلب المساعدة.
+  </p>
+
+  <p>
+    قد يمتد هذا الضغط إلى حياته اليومية؛ فيتشتت انتباهه، وتتراجع قدرته على
+    التركيز أو المشاركة، ويواجه صعوبة في ترتيب أولوياته أو اتخاذ قراراته.
+    وقد ينسحب من علاقاته أو فرص التعلّم والتطوير خوفًا من الرفض أو السخرية.
+  </p>
+
+  <div class="statement">
+    <strong>المشكلة المحورية:</strong>
+    التشتّت في الحياة الدراسية والعملية، بوصفه أثرًا محتملًا لتراكم الضغوط
+    النفسية والاجتماعية وغياب الدعم المناسب، بما قد يعيق تركيز الطفل،
+    ومشاركته، وتنظيم أفكاره، واتخاذ قراراته اليومية.
   </div>
+  <p class="note">
+    المقصود بالحياة العملية هنا الأنشطة اليومية والاجتماعية والتعلّمية
+    المناسبة لعمر الطفل، وليس العمل المهني بالضرورة.
+  </p>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <span class="eyebrow">02 / Problem analysis</span>
-    <h2>How the problem can escalate</h2>
-    <div class="flow">
-      <div class="step">Social & family pressures</div>
-      <span class="arrow">→</span>
-      <div class="step">Feeling unheard or unsafe</div>
-      <span class="arrow">→</span>
-      <div class="step">Silence or withdrawal</div>
-      <span class="arrow">→</span>
-      <div class="step">Potential learning & social difficulties</div>
-    </div>
-    <p class="note">
-      This is a proposed pathway, not a guaranteed outcome. Children respond
-      differently depending on their circumstances and available support.
-    </p>
+<div class="container">
+  <span class="eyebrow">02 / تحليل المشكلة</span>
+  <h2>من الضغوط إلى التشتّت</h2>
 
-    <div class="statement">
-      <strong>Core insight:</strong> The problem is not only the adversity
-      children face. It is also the possibility of facing it without a trusted,
-      safe, and accessible support system.
-    </div>
+  <div class="grid">
+    <article class="card">
+      <div class="number">01</div>
+      <h3>ضعف التواصل الأسري</h3>
+      <p>قد يشعر الطفل بأن مشكلاته غير مهمة عندما لا يجد من يستمع إليه،
+      أو عندما يتوقع اللوم بدلًا من الفهم.</p>
+    </article>
+    <article class="card">
+      <div class="number">02</div>
+      <h3>التنمر والمقارنة</h3>
+      <p>السخرية من المظهر أو القدرات أو الظروف المادية قد تؤثر في الثقة بالنفس
+      وتزيد الخوف من المشاركة أو ارتكاب الأخطاء.</p>
+    </article>
+    <article class="card">
+      <div class="number">03</div>
+      <h3>الفقر وعدم تكافؤ الفرص</h3>
+      <p>قد تحدّ الموارد المحدودة من الوصول إلى الأنشطة التعليمية والاجتماعية،
+      وتزيد شعور الطفل بأنه أقل من أقرانه.</p>
+    </article>
+    <article class="card">
+      <div class="number">04</div>
+      <h3>الخوف من طلب المساعدة</h3>
+      <p>الخوف من عدم التصديق أو التعرض للسخرية قد يدفع الطفل إلى كتمان
+      مشكلاته بدلًا من التعامل معها بمساندة مناسبة.</p>
+    </article>
   </div>
+
+  <h3>المسار المحتمل لتفاقم المشكلة</h3>
+  <div class="flow">
+    <div class="step">ضغوط أسرية واجتماعية</div>
+    <span class="arrow">←</span>
+    <div class="step">شعور بعدم الأمان أو التقدير</div>
+    <span class="arrow">←</span>
+    <div class="step">كتمان المشكلات أو الانسحاب</div>
+    <span class="arrow">←</span>
+    <div class="step">احتمال زيادة التشتّت وصعوبات المشاركة</div>
+  </div>
+
+  <p class="note">
+    يوضّح هذا المسار فرضية تحتاج إلى اختبار، ولا يعني أن كل طفل يواجه هذه
+    الظروف سيعاني بالضرورة من التشتّت أو صعوبات التعلّم.
+  </p>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <span class="eyebrow">03 / Problem statement</span>
-    <h2>Defining the problem</h2>
-    <div class="statement">
-      Children and adolescents aged 6–18 may experience bullying, poverty,
-      social comparison, and limited emotional support at home or in their
-      communities. Without safe and trusted channels to express concerns
-      and seek help, some may struggle with self-confidence, social
-      participation, and learning. There is a need for accessible,
-      supportive environments that help young people feel heard, develop
-      social-emotional skills, and connect with appropriate protection
-      and support services.
-    </div>
-    <h3>Our guiding question</h3>
-    <p class="quote">
-      How might we create safe and accessible environments where children
-      feel heard, valued, and empowered to navigate social and emotional challenges?
-    </p>
-  </div>
-</section>
+<div class="container">
+  <span class="eyebrow">03 / لماذا اخترنا هذه المشكلة؟</span>
+  <h2>لماذا تستحق المشكلة التدخّل؟</h2>
 
-<section>
-  <div class="container">
-    <span class="eyebrow">04 / Target audience</span>
-    <h2>Who are we designing for?</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Ages 6–9</h3>
-        <p>Emotional expression, safety, trusted adults, and learning how to ask for help.</p>
-      </article>
-      <article class="card">
-        <h3>Ages 10–14</h3>
-        <p>Bullying prevention, self-esteem, friendships, and family communication.</p>
-      </article>
-      <article class="card">
-        <h3>Ages 15–18</h3>
-        <p>Decision-making, independence, stress management, and healthy relationships.</p>
-      </article>
-      <article class="card">
-        <h3>Indirect beneficiaries</h3>
-        <p>Parents, caregivers, teachers, instructors, youth organizations, and child-protection services.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <span class="eyebrow">05 / Stakeholder conversations</span>
-    <h2>Understanding different perspectives</h2>
-    <p>
-      The following are illustrative interview drafts to guide stakeholder
-      research. They are not verified quotations or evidence that the named
-      individuals expressed these views.
-    </p>
-
-    <details>
-      <summary>Shams Mohamed — Children's Programming Instructor</summary>
-      <p><strong>Q: How can bullying affect a child's learning?</strong></p>
-      <p>A: A child who fears being laughed at may hesitate to answer questions
-      or try something new. Learning environments should make mistakes part
-      of the process rather than a reason for humiliation.</p>
-      <p><strong>Q: What could help?</strong></p>
-      <p>A: Cooperative activities, respectful communication, anti-bullying
-      awareness, and clear procedures for referring serious concerns to
-      appropriate adults or specialists.</p>
-    </details>
-
-    <details>
-      <summary>Enass Mohamed — Mother of Two</summary>
-      <p><strong>Q: Why might children feel unheard at home?</strong></p>
-      <p>A: Family responsibilities and daily pressures can make meaningful
-      conversations difficult. Even when parents care deeply, children may
-      need more time, patience, and attentive listening.</p>
-      <p><strong>Q: What could help families?</strong></p>
-      <p>A: Practical guidance on listening without immediate judgment,
-      discussing difficult situations calmly, and responding to children's
-      concerns with care.</p>
-    </details>
-
-    <details>
-      <summary>Rima Yousef — Age 9</summary>
-      <p><strong>Q: What helps a child feel safe when sharing a problem?</strong></p>
-      <p>A: A child-friendly response might emphasize being listened to,
-      not being laughed at, and receiving calm help instead of immediate blame.</p>
-      <p><strong>Q: What could make school better?</strong></p>
-      <p>A: A child might ask for less teasing and a trusted adult they can
-      approach when something goes wrong.</p>
-    </details>
-
-    <p class="note">
-      Research ethics: conduct the actual interviews before attributing
-      answers to participants. For a child participant, obtain guardian
-      consent and the child's assent, avoid leading questions, and protect
-      their privacy and safety.
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <span class="eyebrow">06 / Evidence base</span>
-    <h2>What research tells us</h2>
-
-    <div class="card source">
-      <a href="https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health"
-         target="_blank" rel="noopener">
-        WHO — Adolescent Mental Health
-      </a>
+  <div class="grid">
+    <article class="card">
+      <h3>لأن آثارها قد تتجاوز الموقف نفسه</h3>
       <p>
-        Explains how poverty, violence, bullying, social exclusion, peer
-        pressure, and family environments relate to adolescent mental health.
-        WHO estimates that one in seven people aged 10–19 experiences a
-        mental disorder globally.
+        قد لا ينتهي تأثير التنمر أو غياب الاستماع بانتهاء الموقف؛
+        بل يمكن أن ينعكس على التركيز والمشاركة والعلاقات اليومية.
       </p>
-    </div>
-
-    <div class="card source">
-      <a href="https://www.unicef.org/documents/behind-numbers-ending-school-violence-and-bullying"
-         target="_blank" rel="noopener">
-        UNICEF — Behind the Numbers: Ending School Violence and Bullying
-      </a>
+    </article>
+    <article class="card">
+      <h3>لأن المشكلة قد تبقى غير مرئية</h3>
       <p>
-        Reviews evidence on school violence and bullying and discusses
-        evidence-based approaches to prevention and response.
+        قد يبدو الطفل هادئًا أو غير مهتم، بينما يواجه ضغوطًا لا يستطيع
+        التعبير عنها أو لا يعرف كيف يطلب المساعدة بشأنها.
       </p>
-    </div>
-
-    <div class="card source">
-      <a href="https://www.unicef.org/innocenti/reports/mind-gap-child-and-adolescent-mental-and-psychosocial-support-interventions"
-         target="_blank" rel="noopener">
-        UNICEF Innocenti — Mind the Gap
-      </a>
+    </article>
+    <article class="card">
+      <h3>لأن الدعم المبكر فرصة للتحسين</h3>
       <p>
-        Maps evidence on mental-health and psychosocial-support interventions
-        for children and adolescents in low- and middle-income countries.
+        يمكن للاستماع الفعّال والبيئات الآمنة وتنمية المهارات الاجتماعية
+        أن تساعد الأطفال على التعامل مع الضغوط وطلب الدعم المناسب.
       </p>
-    </div>
-
-    <div class="card source">
-      <a href="https://www.who.int/activities/improving-the-mental-and-brain-health-of-children-and-adolescents"
-         target="_blank" rel="noopener">
-        WHO — Child and Adolescent Mental and Brain Health
-      </a>
+    </article>
+    <article class="card">
+      <h3>لأنها مشكلة قابلة للتعامل معها مجتمعيًا</h3>
       <p>
-        Explains the importance of supportive environments and the potential
-        effects of adverse experiences, including bullying and poverty.
+        تستطيع المبادرات التعاون مع الأسر والمدارس والمدرّبين لتوفير
+        التوعية والأنشطة الداعمة ومسارات واضحة للوصول إلى المختصين.
       </p>
-    </div>
+    </article>
   </div>
+
+  <div class="statement">
+    <strong>لماذا اخترناها؟</strong>
+    لأننا نؤمن بأن الطفل يحتاج إلى أكثر من التعليم وحده؛ فهو يحتاج إلى
+    بيئة تساعده على الشعور بالأمان، والتعبير عن نفسه، وفهم مشكلاته،
+    والتعامل معها دون أن تتحول إلى عائق أمام مشاركته وتطوره.
+  </div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <span class="eyebrow">07 / Sustainable development</span>
-    <h2>Relevant UN Sustainable Development Goals</h2>
-    <p>
-      These are potential contributions, not claims of impact already achieved.
-    </p>
+<div class="container">
+  <span class="eyebrow">04 / Problem Statement</span>
+  <h2>صياغة المشكلة الأساسية</h2>
 
-    <div class="grid">
-      <article class="card">
-        <span class="pill primary">SDG 3</span>
-        <h3>Good Health & Well-being</h3>
-        <p>Promote well-being and connect children to appropriate support.</p>
-      </article>
-      <article class="card">
-        <span class="pill primary">SDG 4</span>
-        <h3>Quality Education</h3>
-        <p>Support safer, more inclusive learning environments.</p>
-      </article>
-      <article class="card">
-        <span class="pill primary">SDG 10</span>
-        <h3>Reduced Inequalities</h3>
-        <p>Improve equitable access to support and participation.</p>
-      </article>
-      <article class="card">
-        <span class="pill primary">SDG 16</span>
-        <h3>Peace, Justice & Strong Institutions</h3>
-        <p>Promote child safety, protection, and appropriate reporting pathways.</p>
-      </article>
-      <article class="card">
-        <span class="pill secondary">SDG 5</span>
-        <h3>Gender Equality</h3>
-        <p>Address gender-based bullying and ensure inclusive participation.</p>
-      </article>
-      <article class="card">
-        <span class="pill secondary">SDG 11</span>
-        <h3>Sustainable Communities</h3>
-        <p>Help build safer, more inclusive community spaces for young people.</p>
-      </article>
-      <article class="card">
-        <span class="pill secondary">SDG 17</span>
-        <h3>Partnerships for the Goals</h3>
-        <p>Collaborate with families, schools, NGOs, and qualified specialists.</p>
-      </article>
-      <article class="card">
-        <span class="pill secondary">SDG 1 / 8</span>
-        <h3>Additional indirect links</h3>
-        <p>SDG 1 may apply through targeted poverty-related support; SDG 8
-        through relevant life-skills and youth-development activities.</p>
-      </article>
-    </div>
-
-    <p>
-      <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">
-        Explore the UN's official 17 Sustainable Development Goals →
-      </a>
-    </p>
+  <div class="statement">
+    يواجه بعض الأطفال والمراهقين من سن 6 إلى 18 عامًا ضغوطًا نفسية واجتماعية
+    ناتجة عن التنمر والفقر والمقارنة وضعف التواصل الأسري. وعند غياب الدعم
+    الآمن والموثوق، قد تؤثر هذه الضغوط في قدرتهم على التركيز وتنظيم أفكارهم
+    والتفاعل مع الآخرين واتخاذ القرارات، بما ينعكس على حياتهم الدراسية
+    واليومية. وتتمثل الحاجة في توفير بيئات داعمة تساعدهم على التعبير عن
+    مشكلاتهم، وتنمية مهاراتهم الاجتماعية والعاطفية، والوصول إلى المساندة المناسبة.
   </div>
+
+  <h3>السؤال المحوري للمبادرة</h3>
+  <p>
+    كيف يمكننا توفير بيئات آمنة وداعمة تساعد الأطفال والمراهقين على التعامل
+    مع الضغوط الاجتماعية والعاطفية، والحد من آثارها المحتملة على تركيزهم
+    ومشاركتهم وحياتهم الدراسية واليومية؟
+  </p>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <span class="eyebrow">08 / Proposed response</span>
-    <h2>From being unheard to being supported</h2>
-    <div class="grid">
-      <article class="card">
-        <h3>Safe spaces</h3>
-        <p>Age-appropriate activities where young people can express concerns
-        without ridicule.</p>
-      </article>
-      <article class="card">
-        <h3>Social-emotional skills</h3>
-        <p>Workshops on communication, confidence, conflict resolution,
-        and asking for help.</p>
-      </article>
-      <article class="card">
-        <h3>Family engagement</h3>
-        <p>Practical sessions that help caregivers listen and respond supportively.</p>
-      </article>
-      <article class="card">
-        <h3>Safeguarding & referral</h3>
-        <p>Clear procedures for bullying, abuse disclosures, and referrals
-        to qualified professionals.</p>
-      </article>
-    </div>
+<div class="container">
+  <span class="eyebrow">05 / الفئة المستهدفة</span>
+  <h2>من نسعى إلى دعمهم؟</h2>
 
-    <h3>How will success be measured?</h3>
-    <p>
-      Track changes in children's knowledge of how to seek help, perceived
-      safety and belonging, participation, caregiver listening practices,
-      and awareness of bullying-reporting procedures. Establish a baseline
-      before the intervention and evaluate outcomes afterward.
-    </p>
+  <div class="grid">
+    <article class="card">
+      <h3>من 6 إلى 9 سنوات</h3>
+      <p>تنمية القدرة على التعبير عن المشاعر، والتعرّف على البالغين الموثوقين،
+      وتعلّم كيفية طلب المساعدة.</p>
+    </article>
+    <article class="card">
+      <h3>من 10 إلى 14 سنة</h3>
+      <p>التعامل مع التنمر والمقارنة وضغط الأقران، وتعزيز الثقة بالنفس
+      والتواصل والعلاقات الصحية.</p>
+    </article>
+    <article class="card">
+      <h3>من 15 إلى 18 سنة</h3>
+      <p>تنمية مهارات تنظيم الأولويات وإدارة الضغوط وحل المشكلات واتخاذ
+      القرارات والتخطيط للمستقبل.</p>
+    </article>
+    <article class="card">
+      <h3>المستفيدون بصورة غير مباشرة</h3>
+      <p>الأسر ومقدمو الرعاية والمدرّسون والمدرّبون والمؤسسات الشبابية
+      والمتخصصون في الصحة النفسية وحماية الطفل.</p>
+    </article>
   </div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <div class="statement">
-      <h2>Every child deserves to be heard.</h2>
-      A supportive environment cannot remove every hardship, but it can
-      help children find trusted adults, access appropriate support, and
-      develop the skills they need to navigate difficult situations.
-    </div>
-  </div>
+<div class="container">
+  <span class="eyebrow">06 / مقابلات أصحاب المصلحة</span>
+  <h2>ثلاث وجهات نظر لفهم المشكلة</h2>
+
+  <p>
+    الأسئلة والإجابات التالية نموذج مقترح لتنظيم المقابلات. يجب إجراء
+    المقابلات الفعلية وتسجيل الإجابات كما وردت من أصحابها قبل استخدامها
+    باعتبارها أدلة أو اقتباسات موثّقة.
+  </p>
+
+  <details>
+    <summary>شمس محمد — مدرّبة برمجة للأطفال</summary>
+
+    <p class="question">السؤال الأول: كيف يمكن أن تؤثر الضغوط الاجتماعية في تعلّم الطفل؟</p>
+    <p class="answer">
+      إجابة مقترحة: قد يتردد الطفل في المشاركة إذا كان يخشى السخرية من أخطائه،
+      وقد يجد صعوبة في التركيز عندما يكون منشغلًا بمشكلة اجتماعية تؤثر فيه.
+      لذلك من المهم أن يشعر بالأمان أثناء التعلّم.
+    </p>
+
+    <p class="question">السؤال الثاني: ما العلاقة بين التنمر والثقة بالنفس؟</p>
+    <p class="answer">
+      إجابة مقترحة: تكرار السخرية أو المقارنة قد يجعل بعض الأطفال أقل استعدادًا
+      لتجربة أشياء جديدة أو طلب المساعدة، خصوصًا إذا لم يجدوا دعمًا من المحيطين بهم.
+    </p>
+
+    <p class="question">السؤال الثالث: ما الذي يمكن أن تقدمه مبادرة مجتمعية؟</p>
+    <p class="answer">
+      إجابة مقترحة: يمكن تنظيم أنشطة تعاونية وورش للتواصل وحل المشكلات،
+      مع تدريب المدرّبين على الاستماع للأطفال والتعامل مع التنمر وإحالة الحالات
+      التي تحتاج إلى دعم متخصص.
+    </p>
+  </details>
+
+  <details>
+    <summary>إيناس محمد — أم لطفلين</summary>
+
+    <p class="question">السؤال الأول: ما الذي قد يحدّ من التواصل بين الأهل وأطفالهم؟</p>
+    <p class="answer">
+      إجابة مقترحة: قد تؤثر مسؤوليات الحياة والضغوط الاقتصادية وضيق الوقت
+      في قدرة الأهل على الاستماع باهتمام، حتى عندما يكونون حريصين على مصلحة أبنائهم.
+    </p>
+
+    <p class="question">السؤال الثاني: لماذا قد يتردد الطفل في مشاركة مشكلاته مع أسرته؟</p>
+    <p class="answer">
+      إجابة مقترحة: قد يخشى اللوم أو العقاب أو التقليل من مشاعره، خصوصًا إذا
+      شعر أن الحديث عن المشكلة لن يساعده أو سيجعله في موقف محرج.
+    </p>
+
+    <p class="question">السؤال الثالث: كيف يمكن مساعدة الأسر على تحسين التواصل؟</p>
+    <p class="answer">
+      إجابة مقترحة: من خلال ورش عملية حول الاستماع الفعّال، والتعامل مع
+      المشكلات بهدوء، وتجنب المقارنة، ومساعدة الطفل على التفكير في الحلول
+      بدلًا من الاكتفاء باللوم.
+    </p>
+  </details>
+
+  <details>
+    <summary>ريما يوسف — طفلة تبلغ 9 سنوات</summary>
+
+    <p class="question">السؤال الأول: عندما تواجهين مشكلة في المدرسة، ما الذي يساعدك على الشعور بالراحة؟</p>
+    <p class="answer">
+      إجابة مقترحة: أن أجد شخصًا يسمعني بهدوء، ويتركني أشرح ما حدث،
+      ويساعدني على التفكير فيما يمكنني فعله.
+    </p>
+
+    <p class="question">السؤال الثاني: كيف يمكن أن تشعري إذا سخر منك أحد زملائك؟</p>
+    <p class="answer">
+      إجابة مقترحة: قد أشعر بالحزن أو الإحراج، وربما أتردد في المشاركة
+      مرة أخرى إذا كنت أخشى أن يكرر الآخرون السخرية.
+    </p>
+
+    <p class="question">السؤال الثالث: ما الذي تتمنين تغييره في المدرسة أو المكان الذي تتعلمين فيه؟</p>
+    <p class="answer">
+      إجابة مقترحة: أن يعامل الأطفال بعضهم باحترام، وأن يكون هناك شخص بالغ
+      أستطيع التحدث إليه إذا واجهت مشكلة.
+    </p>
+  </details>
+
+  <p class="note">
+    عند إجراء مقابلة مع طفلة، يجب الحصول على موافقة ولي الأمر وموافقة الطفلة
+    المناسبة لعمرها، واحترام خصوصيتها وحقها في التوقف، وعدم توجيه الإجابات
+    أو الضغط عليها للإفصاح عن تجارب مؤلمة.
+  </p>
+</div>
 </section>
+
+<section>
+<div class="container">
+  <span class="eyebrow">07 / الأدلة والمراجع</span>
+  <h2>ماذا تقول الأبحاث؟</h2>
+
+  <div class="source">
+    <a href="https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health"
+       target="_blank" rel="noopener">
+      منظمة الصحة العالمية — Adolescent Mental Health
+    </a>
+    <p>
+      توضح أهمية البيئة الأسرية والاجتماعية الداعمة، وتناقش ارتباط الفقر
+      والتنمر والعنف والضغوط الاجتماعية بمخاطر الصحة النفسية لدى المراهقين.
+      وتقدّر المنظمة أن واحدًا من كل سبعة أشخاص بين 10 و19 عامًا يعاني
+      اضطرابًا نفسيًا.
+    </p>
+  </div>
+
+  <div class="source">
+    <a href="https://www.unicef.org/documents/behind-numbers-ending-school-violence-and-bullying"
+       target="_blank" rel="noopener">
+      UNICEF — Behind the Numbers: Ending School Violence and Bullying
+    </a>
+    <p>
+      تقرير عن العنف والتنمر في المدارس، وآثارهما، وأهمية الوقاية والاستجابة
+      المناسبة داخل البيئة التعليمية.
+    </p>
+  </div>
+
+  <div class="source">
+    <a href="https://www.who.int/activities/improving-the-mental-and-brain-health-of-children-and-adolescents"
+       target="_blank" rel="noopener">
+      منظمة الصحة العالمية — Child and Adolescent Mental and Brain Health
+    </a>
+    <p>
+      يوضح أهمية مرحلة الطفولة والمراهقة في النمو النفسي والاجتماعي،
+      ودور البيئات التي ينشأ فيها الطفل في تشكيل صحته ورفاهه.
+    </p>
+  </div>
+
+  <div class="source">
+    <a href="https://sdgs.un.org/goals"
+       target="_blank" rel="noopener">
+      الأمم المتحدة — The 17 Sustainable Development Goals
+    </a>
+    <p>
+      المرجع الرسمي للأهداف السبعة عشر للتنمية المستدامة التي يمكن
+      مواءمة أنشطة المبادرة مع الأهداف الأكثر ارتباطًا بها.
+    </p>
+  </div>
+
+  <p class="note">
+    تدعم هذه المصادر أهمية المشكلة العامة، لكنها لا تثبت وحدها مدى انتشار
+    التشتّت الدراسي واليومي بين الفئة المستهدفة في مجتمعنا. يتطلب ذلك
+    جمع بيانات محلية من مقابلات فعلية وتقييمات مناسبة للعمر.
+  </p>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <span class="eyebrow">08 / Sustainable Development Goals</span>
+  <h2>الأهداف العالمية التي يمكن أن تدعمها المبادرة</h2>
+
+  <p>
+    يرتبط المشروع مباشرة بعدد من الأهداف، ويمكن أن يساهم في أهداف إضافية
+    وفقًا لطبيعة الأنشطة والشراكات والنتائج التي يمكن قياسها.
+  </p>
+
+  <div class="grid">
+    <article class="card">
+      <span class="pill primary">SDG 3</span>
+      <h3>Good Health and Well-being</h3>
+      <p>تعزيز الرفاه النفسي والاجتماعي وتسهيل الوصول إلى الدعم المناسب.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill primary">SDG 4</span>
+      <h3>Quality Education</h3>
+      <p>دعم بيئات تعلّم شاملة وآمنة، وتشجيع المشاركة والتطوّر.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill primary">SDG 10</span>
+      <h3>Reduced Inequalities</h3>
+      <p>تحسين فرص الوصول إلى الدعم والأنشطة للأطفال من خلفيات مختلفة.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill primary">SDG 16</span>
+      <h3>Peace, Justice and Strong Institutions</h3>
+      <p>تعزيز حماية الأطفال، والتوعية بحقوقهم، وتوفير مسارات آمنة للإبلاغ.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill secondary">SDG 5</span>
+      <h3>Gender Equality</h3>
+      <p>دعم المشاركة المتكافئة والتعامل مع التنمر أو التمييز المرتبط بالنوع الاجتماعي.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill secondary">SDG 11</span>
+      <h3>Sustainable Cities and Communities</h3>
+      <p>المساهمة في بناء مساحات مجتمعية أكثر شمولًا وأمانًا للأطفال والشباب.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill secondary">SDG 17</span>
+      <h3>Partnerships for the Goals</h3>
+      <p>التعاون مع الأسر والمدارس والجمعيات والمتخصصين لتقديم دعم متكامل.</p>
+    </article>
+
+    <article class="card">
+      <span class="pill secondary">SDG 1 / SDG 8</span>
+      <h3>No Poverty / Decent Work and Economic Growth</h3>
+      <p>
+        يمكن دعم هذين الهدفين بصورة غير مباشرة إذا تضمنت المبادرة تدخلات
+        واضحة لتوسيع فرص الأطفال الأقل حظًا وتنمية مهاراتهم الحياتية والمستقبلية.
+      </p>
+    </article>
+  </div>
+
+  <p>
+    <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">
+      استعرض الأهداف السبعة عشر من الموقع الرسمي للأمم المتحدة ←
+    </a>
+  </p>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <span class="eyebrow">09 / اتجاه الحل</span>
+  <h2>من التشتّت إلى الدعم والقدرة على التقدّم</h2>
+
+  <div class="grid">
+    <article class="card">
+      <h3>مساحات آمنة للاستماع</h3>
+      <p>أنشطة مناسبة للعمر تتيح للأطفال التعبير عن مشكلاتهم دون سخرية أو إهانة.</p>
+    </article>
+
+    <article class="card">
+      <h3>مهارات التعامل مع الضغوط</h3>
+      <p>تدريبات على التواصل وتنظيم الأولويات وحل المشكلات واتخاذ القرارات.</p>
+    </article>
+
+    <article class="card">
+      <h3>إشراك الأسرة</h3>
+      <p>توعية عملية تساعد أولياء الأمور على الاستماع وفهم احتياجات أطفالهم.</p>
+    </article>
+
+    <article class="card">
+      <h3>الحماية والإحالة</h3>
+      <p>إجراءات واضحة للتعامل مع التنمر والإيذاء وإحالة الحالات إلى مختصين عند الحاجة.</p>
+    </article>
+  </div>
+
+  <h3>كيف نقيس النجاح؟</h3>
+  <p>
+    يمكن قياس التغيّر في قدرة الأطفال على طلب المساعدة، وشعورهم بالأمان
+    والانتماء، ومشاركتهم في الأنشطة، ومعرفتهم بطرق التعامل مع التنمر.
+    كما يمكن تقييم تحسّن ممارسات الاستماع الأسري قبل الأنشطة وبعدها.
+  </p>
+
+  <div class="statement">
+    <strong>رؤيتنا:</strong>
+    أن يحصل كل طفل على فرصة حقيقية للتعبير عن نفسه، وفهم ما يواجهه،
+    والوصول إلى الدعم الذي يحتاج إليه، حتى لا تصبح الضغوط الاجتماعية
+    عائقًا أمام تعلّمه ومشاركته وتطوّره.
+  </div>
+</div>
+</section>
+
 </main>
 
 <footer>
-  <div class="container">
-    <p class="note">
-      Research-informed concept document. Interview drafts are illustrative,
-      not verified testimony. This initiative complements, and does not
-      replace, professional mental-health care or child-protection services.
-    </p>
-  </div>
+<div class="container">
+  <p class="note">
+    وثيقة تأسيسية لمبادرة مجتمعية. تُستخدم المقابلات بعد التحقق من الإجابات
+    الفعلية فقط. المبادرة المقترحة تكمل خدمات المتخصصين ولا تحل محل الرعاية
+    النفسية أو خدمات حماية الطفل.
+  </p>
+</div>
 </footer>
 
 </body>
 </html>
-
