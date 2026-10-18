@@ -1,1 +1,502 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Beyond Silence | Social Impact Project</title>
+<style>
+:root {
+  --bg: #0a1020;
+  --panel: #121c31;
+  --text: #f2f5ff;
+  --muted: #a9b6cd;
+  --cyan: #59e1d1;
+  --purple: #a99aff;
+  --line: rgba(255,255,255,.12);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  line-height: 1.75;
+}
+a { color: var(--cyan); }
+.container { width: min(1080px, 90%); margin: auto; }
+.hero {
+  padding: 95px 0 75px;
+  background:
+    radial-gradient(ellipse at 85% 15%, #39326b 0, transparent 40%),
+    radial-gradient(ellipse at 10% 90%, #124b56 0, transparent 35%),
+    var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.tag {
+  display: inline-block;
+  padding: 5px 13px;
+  border: 1px solid #59e1d155;
+  border-radius: 30px;
+  color: var(--cyan);
+  font-size: .8rem;
+  letter-spacing: 1px;
+}
+h1 { font-size: clamp(2.7rem, 7vw, 5.4rem); line-height: 1.05; margin: 25px 0; }
+h1 span { color: var(--cyan); }
+h2 { font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.25; }
+h3 { line-height: 1.4; }
+p, li { color: var(--muted); }
+.lead { max-width: 760px; font-size: 1.13rem; }
+section { padding: 65px 0; }
+.eyebrow {
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .76rem;
+  font-weight: 700;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 18px;
+}
+.card {
+  background: linear-gradient(145deg, #17233b, #10192b);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 24px;
+}
+.card p:last-child { margin-bottom: 0; }
+.number { color: var(--cyan); font-size: 1.8rem; font-weight: 800; }
+.statement {
+  border-left: 3px solid var(--cyan);
+  background: #142b35;
+  padding: 25px;
+  border-radius: 0 14px 14px 0;
+  font-size: 1.08rem;
+}
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 25px;
+}
+.step {
+  background: #17233b;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 15px;
+  flex: 1 1 145px;
+  text-align: center;
+}
+.arrow { color: var(--cyan); font-size: 1.5rem; }
+.quote {
+  border-left: 2px solid var(--purple);
+  padding-left: 16px;
+  color: #e3dcff;
+  font-style: italic;
+}
+.pill {
+  display: inline-block;
+  margin: 4px;
+  padding: 7px 12px;
+  background: #24364a;
+  border: 1px solid var(--line);
+  border-radius: 30px;
+  font-size: .86rem;
+}
+.pill.primary { color: var(--cyan); }
+.pill.secondary { color: #d0c5ff; }
+details {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin: 14px 0;
+}
+summary { cursor: pointer; font-weight: 700; }
+details p { margin-bottom: 0; }
+.source { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.source a { font-weight: 650; }
+.source p { font-size: .92rem; }
+.note { font-size: .85rem; color: #aebbd0; }
+footer { border-top: 1px solid var(--line); padding: 30px 0; }
+@media(max-width:650px) {
+  .grid { grid-template-columns: 1fr; }
+  .hero { padding-top: 65px; }
+  section { padding: 45px 0; }
+}
+@media print {
+  body { background: white; color: #172033; }
+  p, li { color: #374151; }
+  .card, details, .step { background: white; border-color: #ccc; }
+  .hero { background: white; }
+  h1, h2, h3 { color: #172033; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <span class="tag">SOCIAL IMPACT • CHILD WELLBEING</span>
+    <h1>BEYOND<br><span>SILENCE.</span></h1>
+    <p class="lead">
+      Every child deserves more than a place to live and a school to attend.
+      They deserve someone who listens, a community that protects them,
+      and the opportunity to grow without fear of humiliation or exclusion.
+    </p>
+    <p>Research foundation · Problem analysis · Stakeholder perspectives · SDGs</p>
+  </div>
+</header>
+
+<main>
+<section>
+  <div class="container">
+    <span class="eyebrow">01 / The challenge</span>
+    <h2>When a child has a problem, who listens?</h2>
+    <p>
+      Poverty, bullying, constant comparison, limited family communication,
+      and social pressures can undermine a young person's sense of safety
+      and belonging. Some children hesitate to speak up because they fear
+      blame, ridicule, rejection, or being misunderstood.
+    </p>
+    <p>
+      When trusted support is missing, children may withdraw, struggle to
+      ask for help, or experience difficulties with participation and learning.
+      These outcomes are not inevitable, but they make early support important.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <div class="number">01</div>
+        <h3>Family communication</h3>
+        <p>Children may feel unheard when adults are unavailable, dismiss their
+        concerns, or respond with criticism instead of listening.</p>
+      </article>
+      <article class="card">
+        <div class="number">02</div>
+        <h3>Bullying & comparison</h3>
+        <p>Mockery about appearance, money, or ability can damage confidence
+        and make social participation feel unsafe.</p>
+      </article>
+      <article class="card">
+        <div class="number">03</div>
+        <h3>Economic exclusion</h3>
+        <p>Limited resources can restrict access to activities and opportunities,
+        increasing the feeling of being left behind.</p>
+      </article>
+      <article class="card">
+        <div class="number">04</div>
+        <h3>Fear of seeking help</h3>
+        <p>Fear of punishment, disbelief, or humiliation can prevent children
+        from sharing difficulties with trusted adults.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">02 / Problem analysis</span>
+    <h2>How the problem can escalate</h2>
+    <div class="flow">
+      <div class="step">Social & family pressures</div>
+      <span class="arrow">→</span>
+      <div class="step">Feeling unheard or unsafe</div>
+      <span class="arrow">→</span>
+      <div class="step">Silence or withdrawal</div>
+      <span class="arrow">→</span>
+      <div class="step">Potential learning & social difficulties</div>
+    </div>
+    <p class="note">
+      This is a proposed pathway, not a guaranteed outcome. Children respond
+      differently depending on their circumstances and available support.
+    </p>
+
+    <div class="statement">
+      <strong>Core insight:</strong> The problem is not only the adversity
+      children face. It is also the possibility of facing it without a trusted,
+      safe, and accessible support system.
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">03 / Problem statement</span>
+    <h2>Defining the problem</h2>
+    <div class="statement">
+      Children and adolescents aged 6–18 may experience bullying, poverty,
+      social comparison, and limited emotional support at home or in their
+      communities. Without safe and trusted channels to express concerns
+      and seek help, some may struggle with self-confidence, social
+      participation, and learning. There is a need for accessible,
+      supportive environments that help young people feel heard, develop
+      social-emotional skills, and connect with appropriate protection
+      and support services.
+    </div>
+    <h3>Our guiding question</h3>
+    <p class="quote">
+      How might we create safe and accessible environments where children
+      feel heard, valued, and empowered to navigate social and emotional challenges?
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">04 / Target audience</span>
+    <h2>Who are we designing for?</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Ages 6–9</h3>
+        <p>Emotional expression, safety, trusted adults, and learning how to ask for help.</p>
+      </article>
+      <article class="card">
+        <h3>Ages 10–14</h3>
+        <p>Bullying prevention, self-esteem, friendships, and family communication.</p>
+      </article>
+      <article class="card">
+        <h3>Ages 15–18</h3>
+        <p>Decision-making, independence, stress management, and healthy relationships.</p>
+      </article>
+      <article class="card">
+        <h3>Indirect beneficiaries</h3>
+        <p>Parents, caregivers, teachers, instructors, youth organizations, and child-protection services.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">05 / Stakeholder conversations</span>
+    <h2>Understanding different perspectives</h2>
+    <p>
+      The following are illustrative interview drafts to guide stakeholder
+      research. They are not verified quotations or evidence that the named
+      individuals expressed these views.
+    </p>
+
+    <details>
+      <summary>Shams Mohamed — Children's Programming Instructor</summary>
+      <p><strong>Q: How can bullying affect a child's learning?</strong></p>
+      <p>A: A child who fears being laughed at may hesitate to answer questions
+      or try something new. Learning environments should make mistakes part
+      of the process rather than a reason for humiliation.</p>
+      <p><strong>Q: What could help?</strong></p>
+      <p>A: Cooperative activities, respectful communication, anti-bullying
+      awareness, and clear procedures for referring serious concerns to
+      appropriate adults or specialists.</p>
+    </details>
+
+    <details>
+      <summary>Enass Mohamed — Mother of Two</summary>
+      <p><strong>Q: Why might children feel unheard at home?</strong></p>
+      <p>A: Family responsibilities and daily pressures can make meaningful
+      conversations difficult. Even when parents care deeply, children may
+      need more time, patience, and attentive listening.</p>
+      <p><strong>Q: What could help families?</strong></p>
+      <p>A: Practical guidance on listening without immediate judgment,
+      discussing difficult situations calmly, and responding to children's
+      concerns with care.</p>
+    </details>
+
+    <details>
+      <summary>Rima Yousef — Age 9</summary>
+      <p><strong>Q: What helps a child feel safe when sharing a problem?</strong></p>
+      <p>A: A child-friendly response might emphasize being listened to,
+      not being laughed at, and receiving calm help instead of immediate blame.</p>
+      <p><strong>Q: What could make school better?</strong></p>
+      <p>A: A child might ask for less teasing and a trusted adult they can
+      approach when something goes wrong.</p>
+    </details>
+
+    <p class="note">
+      Research ethics: conduct the actual interviews before attributing
+      answers to participants. For a child participant, obtain guardian
+      consent and the child's assent, avoid leading questions, and protect
+      their privacy and safety.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">06 / Evidence base</span>
+    <h2>What research tells us</h2>
+
+    <div class="card source">
+      <a href="https://www.who.int/news-room/fact-sheets/detail/adolescent-mental-health"
+         target="_blank" rel="noopener">
+        WHO — Adolescent Mental Health
+      </a>
+      <p>
+        Explains how poverty, violence, bullying, social exclusion, peer
+        pressure, and family environments relate to adolescent mental health.
+        WHO estimates that one in seven people aged 10–19 experiences a
+        mental disorder globally.
+      </p>
+    </div>
+
+    <div class="card source">
+      <a href="https://www.unicef.org/documents/behind-numbers-ending-school-violence-and-bullying"
+         target="_blank" rel="noopener">
+        UNICEF — Behind the Numbers: Ending School Violence and Bullying
+      </a>
+      <p>
+        Reviews evidence on school violence and bullying and discusses
+        evidence-based approaches to prevention and response.
+      </p>
+    </div>
+
+    <div class="card source">
+      <a href="https://www.unicef.org/innocenti/reports/mind-gap-child-and-adolescent-mental-and-psychosocial-support-interventions"
+         target="_blank" rel="noopener">
+        UNICEF Innocenti — Mind the Gap
+      </a>
+      <p>
+        Maps evidence on mental-health and psychosocial-support interventions
+        for children and adolescents in low- and middle-income countries.
+      </p>
+    </div>
+
+    <div class="card source">
+      <a href="https://www.who.int/activities/improving-the-mental-and-brain-health-of-children-and-adolescents"
+         target="_blank" rel="noopener">
+        WHO — Child and Adolescent Mental and Brain Health
+      </a>
+      <p>
+        Explains the importance of supportive environments and the potential
+        effects of adverse experiences, including bullying and poverty.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">07 / Sustainable development</span>
+    <h2>Relevant UN Sustainable Development Goals</h2>
+    <p>
+      These are potential contributions, not claims of impact already achieved.
+    </p>
+
+    <div class="grid">
+      <article class="card">
+        <span class="pill primary">SDG 3</span>
+        <h3>Good Health & Well-being</h3>
+        <p>Promote well-being and connect children to appropriate support.</p>
+      </article>
+      <article class="card">
+        <span class="pill primary">SDG 4</span>
+        <h3>Quality Education</h3>
+        <p>Support safer, more inclusive learning environments.</p>
+      </article>
+      <article class="card">
+        <span class="pill primary">SDG 10</span>
+        <h3>Reduced Inequalities</h3>
+        <p>Improve equitable access to support and participation.</p>
+      </article>
+      <article class="card">
+        <span class="pill primary">SDG 16</span>
+        <h3>Peace, Justice & Strong Institutions</h3>
+        <p>Promote child safety, protection, and appropriate reporting pathways.</p>
+      </article>
+      <article class="card">
+        <span class="pill secondary">SDG 5</span>
+        <h3>Gender Equality</h3>
+        <p>Address gender-based bullying and ensure inclusive participation.</p>
+      </article>
+      <article class="card">
+        <span class="pill secondary">SDG 11</span>
+        <h3>Sustainable Communities</h3>
+        <p>Help build safer, more inclusive community spaces for young people.</p>
+      </article>
+      <article class="card">
+        <span class="pill secondary">SDG 17</span>
+        <h3>Partnerships for the Goals</h3>
+        <p>Collaborate with families, schools, NGOs, and qualified specialists.</p>
+      </article>
+      <article class="card">
+        <span class="pill secondary">SDG 1 / 8</span>
+        <h3>Additional indirect links</h3>
+        <p>SDG 1 may apply through targeted poverty-related support; SDG 8
+        through relevant life-skills and youth-development activities.</p>
+      </article>
+    </div>
+
+    <p>
+      <a href="https://sdgs.un.org/goals" target="_blank" rel="noopener">
+        Explore the UN's official 17 Sustainable Development Goals →
+      </a>
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="eyebrow">08 / Proposed response</span>
+    <h2>From being unheard to being supported</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Safe spaces</h3>
+        <p>Age-appropriate activities where young people can express concerns
+        without ridicule.</p>
+      </article>
+      <article class="card">
+        <h3>Social-emotional skills</h3>
+        <p>Workshops on communication, confidence, conflict resolution,
+        and asking for help.</p>
+      </article>
+      <article class="card">
+        <h3>Family engagement</h3>
+        <p>Practical sessions that help caregivers listen and respond supportively.</p>
+      </article>
+      <article class="card">
+        <h3>Safeguarding & referral</h3>
+        <p>Clear procedures for bullying, abuse disclosures, and referrals
+        to qualified professionals.</p>
+      </article>
+    </div>
+
+    <h3>How will success be measured?</h3>
+    <p>
+      Track changes in children's knowledge of how to seek help, perceived
+      safety and belonging, participation, caregiver listening practices,
+      and awareness of bullying-reporting procedures. Establish a baseline
+      before the intervention and evaluate outcomes afterward.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="statement">
+      <h2>Every child deserves to be heard.</h2>
+      A supportive environment cannot remove every hardship, but it can
+      help children find trusted adults, access appropriate support, and
+      develop the skills they need to navigate difficult situations.
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p class="note">
+      Research-informed concept document. Interview drafts are illustrative,
+      not verified testimony. This initiative complements, and does not
+      replace, professional mental-health care or child-protection services.
+    </p>
+  </div>
+</footer>
+
+</body>
+</html>
+
